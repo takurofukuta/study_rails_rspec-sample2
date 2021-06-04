@@ -1,0 +1,6 @@
+<%= form_with model: @user, local: true do |form| %>
+  <p><%= form.label :name, "氏名" %><%= form.text_field :name %></p>
+  <p><%= form.label :age, "年齢" %><%= form.text_field :age %></p>
+  <p><%= form.label :email, "メールアドレス" %><%= form.text_field :email %></p>
+  <p><%= form.submit "送信" %></p>
+<% end %>
