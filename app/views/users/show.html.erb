@@ -1,2 +1,5 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>投稿詳細</h1>
+<p>氏名: <%= @user.name %></p>
+<p>年齢: <%= @user.age %></p>
+<p>メールアドレス: <%= @user.email %></p>
+<p><%= link_to "投稿一覧", users_path %></p>
