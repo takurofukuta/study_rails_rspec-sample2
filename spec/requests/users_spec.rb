@@ -188,4 +188,24 @@ RSpec.describe "Users", type: :request do
       end
     end
   end
+  describe 'DELETE #destroy' do
+    subject { delete(user_path(user.id)) }
+    let!(:user) { create(:user) }
+
+    context 'パラメータが正常な場合' do
+      it 'リクエストが成功する' do
+        subject
+        expect(response).to have_http_status(302)
+      end
+
+      it 'ユーザーが削除される' do
+        expect { subject }.to change(User, :count).by(-1)
+      end
+
+      it 'ユーザー一覧にリダイレクトすること' do
+        subject
+        expect(response).to redirect_to(users_path)
+      end
+    end
+  end
 end
